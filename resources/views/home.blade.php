@@ -14,26 +14,39 @@
     @include('layouts.nav')
     <!-- End of Navbar -->
 
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Dashboard</div>
-
-                    <div class="card-body">
-                        @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
-                            </div>
-                        @endif
-
-                        You are logged in!
-                    </div>
+    <div class="offset-md-1 row ">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-7">
+                <a href="/users">
+                    <img class="img-fluid rounded mb-3 mb-md-0" src="/img/user.jpg" alt="">
+                </a>
+                </div>
+                <div class="col-md-5">
+                <h3>Manage Users</h3>
+                <p>Review user data and administrate users. </p>
+                <a class="btn btn-primary" href="/users">View users</a>
                 </div>
             </div>
-        </div>
+            <!-- /.row -->
+            <hr>            
+            <div class="row">
+                <div class="col-md-7">
+                <a href="/products">
+                    <img class="img-fluid rounded mb-3 mb-md-0" src="/img/product.jpg" alt="">
+                </a>
+                </div>
+                <div class="col-md-5">
+                <h3>Manage Products</h3>
+                <p>View all products available on the website.</p>
+                <a class="btn btn-primary" href="/products">View Products</a>
+                </div>
+            </div>
+        <div>
     </div>
+      <!-- /.row -->
 
+    <br><br><br><br><bnr><br><br>
      <!-- Footer -->
      @include('layouts.footer')
     <!-- End of Footer -->

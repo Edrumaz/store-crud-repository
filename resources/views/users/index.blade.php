@@ -75,6 +75,7 @@
     </div>
   </div>
 
+    <br><br><br><br><bnr><br><br>
     <!-- Footer -->
     @include('layouts.footer')
     <!-- End of Footer -->
