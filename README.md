@@ -2,17 +2,17 @@
 
 <p> Clone the repository </p>
 <code> git clone https://github.com/elaniin/jw-web.git </code><br>
-<p>Switch to the repo folder </p>
+<br><p>Switch to the repo folder </p>
 <code> cd jw-web </code><br>
-<p> Install all the dependencies using composer </p>
+<br><p> Install all the dependencies using composer </p>
 <code> composer install </code><br>
-<p> Copy the example env file and make the required configuration changes in the .env file </p>
+<br><p> Copy the example env file and make the required configuration changes in the .env file </p>
 <code> cp .env.example .env </code><br>
-<p> Run the database migrations (Set the database connection in .env before migrating) </p>
+<br><p> Run the database migrations (Set the database connection in .env before migrating) </p>
 <code> php artisan migrate </code><br>
-<p> Install dependencies </p>
+<br><p> Install dependencies </p>
 <code> composer install </code><br>
-<p> Start the local development server </p>
+<br><p> Start the local development server </p>
 <code> php artisan serve </code><br>
-<p> You can now access the server at http://127.0.0.1:8000/ </p>
+<br><p> You can now access the server at http://127.0.0.1:8000/ </p>
 
