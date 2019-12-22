@@ -15,6 +15,7 @@
     <!-- End of Navbar -->
 
     <div class="offset-md-1 row ">
+    <h1 class="title muted-text display-4 text-center"> Welcome {{ Auth::user()->name }}!</h1>
         <div class="col-md-12">
             <div class="row">
                 <div class="col-md-7">

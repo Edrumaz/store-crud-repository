@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Repositories\UserRepository;
 use Illuminate\Support\Facades\Hash;
 use App\User;
 use Carbon\Carbon;
@@ -66,15 +67,23 @@ class UsersController extends Controller
             'email' => 'required'
         ]);
 
-        User::update([
+        $userRepo = new UserRepository(new User());
+        $findUser = $userRepo->find($user->id);
+
+        $data =[
             'name' => request('name'),
             'telephone' => request('telephone'),
             'date_of_birth' => request('date_of_birth'),
             'username' => request('username'),
             'email' => request('email')
-        ]);
+        ];
 
-        return redirect('/users');
+        if ($findUser->update($data)){
+            return redirect('/users');
+        }
+        else {
+            return "Error";
+        }
     }
 
     public function destroy(User $user)

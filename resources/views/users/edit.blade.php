@@ -57,8 +57,9 @@
             @endif
          </div>
          <div class="input-group-prepend col-md">
-            <button type="submit" class="btn btn-primary">Update user</button>
-            <a class="btn btn-outline-secondary" href="/users">Return</a>
+            <button type="submit" class="btn btn-primary col-md-3">Update user</button>
+            <div class="col-md-1"></div>
+            <a class="btn btn-outline-secondary col-md-3" href="/users">Return</a>
          </div>
       </form>
    </div>

@@ -14,7 +14,7 @@
     @include('layouts.nav')
     <!-- End of Navbar -->
 
-   <h1 class="title muted-text display-2"> See User</h1>
+   <h1 class="title muted-text display-4"> See User</h1>
    <div class="row">  
       <div class="col-md-1"></div>
       <table class="table table-hover col-md-10">
@@ -55,8 +55,9 @@
    <div class="row">
       <div class="col-md-1"></div>
       <div class="input-group-prepend col-md">
-         <a class="btn btn-outline-primary" href="/users/{{ $user->id }}/edit">Edit User</a>
-         <a class="btn btn-outline-secondary" href="/users">Return</a>
+         <a class="btn btn-outline-primary col-md-3" href="/users/{{ $user->id }}/edit">Edit User</a>
+         <div class="col-md-1"></div>
+         <a class="btn btn-outline-secondary col-md-3" href="/users">Return</a>
       </div>
    </div>    
   

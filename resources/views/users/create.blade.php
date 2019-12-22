@@ -14,7 +14,7 @@
     @include('layouts.nav')
     <!-- End of Navbar -->
 
-  <h1 class="title muted-text display-4 text-center"> Create new users</h1>
+  <h1 class="title muted-text display-4 col-offset-1"> Create new users</h1>
 
    <div class="row">
       <div class="col-sm-1"></div>
@@ -72,7 +72,7 @@
          <div class="input-group-prepend col-md">
             <button type="submit" class="btn btn-primary col-md-3">Create user</button>
             <div class="col-md-1"></div>
-            <a class="col-md-3 btn btn-outline-secondary" href="/home">Return</a>
+            <a class="col-md-3 btn btn-outline-secondary" href="/users">Return</a>
          </div>         
       </form>
    </div>
