@@ -8,6 +8,8 @@
 <code> composer install </code><br>
 <br><p> Copy the example env file and make the required configuration changes in the .env file </p>
 <code> cp .env.example .env </code><br>
+<br><p>Get the aplication key </p>
+<code> php artisan generate:key </code><br>
 <br><p> Run the database migrations (Set the database connection in .env before migrating) </p>
 <code> php artisan migrate </code><br>
 <br><p> Start the local development server </p>
