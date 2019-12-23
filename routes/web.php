@@ -38,9 +38,10 @@ Route::patch('/products/{product}/edit', 'ProductsController@update');
 Route::delete('/products/{product}/delete', 'ProductsController@destroy');
 
 // Search routes
-Route::post('/search/{content}', 'SearchController@show');
-
-
+Route::get('/search-user', 'UserSearchController@get');
+Route::post('/search-user', 'UserSearchController@index');
+Route::get('/search-product', 'ProductSearchController@get');
+Route::post('/search-product', 'ProductSearchController@index');
 
 Auth::routes();
 

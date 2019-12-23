@@ -19,15 +19,18 @@
     <div class="col-md-1"></div>
     <a class="btn btn-outline-info col-md-2" href="/users/create">Create User</a>
     <div class="col-md-6"></div>
-    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" action="/search/" method="POST" role="search">
+    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" action="/search-user/" method="POST">
     {{ csrf_field() }}
       <div class="input-group">
-        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+        <input type="text" class="form-control bg-light border-0 small @error('searchValue') is-invalid @enderror" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" name="searchValue">
         <div class="input-group-append">
           <button class="btn btn-primary" type="submit">
             <i class="fas fa-search fa-sm"></i>
           </button>
         </div>
+        @if ($errors->has('searchValue'))
+          <p class="form-text text-danger"> {{ $errors->first('searchValue') }} </p>
+        @endif
       </div>
     </form>
   </div><br>
@@ -45,6 +48,7 @@
           <th scope="col">Actions</th>
         </tr>
       </thead>
+      @if(!empty($users) && $users->count())
       @foreach ($users as $user) 
       <tbody>
         <tr>
@@ -66,14 +70,32 @@
           </td>
         </tr>
       @endforeach
+      @else
+        <tr>
+            <td colspan="10" class="text-center">No data matched your search.</td>
+        </tr>
+      @endif
       </tbody>
     </table>
   </div>
+  <div class="col">
+  <div class="row">
+    <div class="col"></div>
+    <div class="col text-center"> 
+      {{ $users->links() }}
+    </div>
+    <div class="col"></div>
+  </div>
+  </div>
   <div class="row">
     <div class="col-md-1"></div>
-      <a class="btn btn-outline-secondary col-md-2" href="/home">Return</a>
+    <div class="input-group-prepend col-md">
+      <a class="col-md-2 btn btn-outline-secondary" href="/home">Return</a>
+      <div class="col-md-1"></div>
+      <a class="col-md-2 btn btn-outline-secondary" href="/users">Refresh</a>
     </div>
   </div>
+</div>
 
     <br><br><br><br><bnr><br><br>
     <!-- Footer -->

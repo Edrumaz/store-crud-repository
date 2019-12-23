@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Http\Repositories\ProductRepository;
+use App\Http\Repositories\NotFoundException;
 use Illuminate\Http\Request;
 use App\Product;
 
@@ -9,7 +10,7 @@ class ProductsController extends Controller
 {
     public function index()
     {
-        $products = Product::all();
+        $products = Product::paginate(8);
 
         return view('products.index',  compact('products'));
     }
@@ -27,25 +28,37 @@ class ProductsController extends Controller
             'quantity' => ['required'],
             'price' => ['required', 'numeric'],
             'description' => ['min:5', 'max:255'],
-            'picture' => 'image'
+            'picture' => ['image'], ['mimes:jpeg,png,jpg,gif,svg'], ['max:2048']
         ]);
 
         if( $request->hasFile('picture'))
-        { 
-            $image = $request->file('picture');  
-            $fileExtension = $image->getClientOriginalExtension();
-            $destinationPath = '/img/products';
-            $request->file('picture')->move($destinationPath, $request->file('picture')->getClientOriginalName());
-            $file = (String) request('picture')->getClientOriginalName();
+        {
+            $image = $request->file('picture');
+            $name = time().'.'.$image->getClientOriginalExtension();            
+            $destinationPath = public_path('/img/products');   
+            $image->move(public_path('img/products'), $name);
 
             Product::create([
                 'name' => request('name'),
                 'sku' => request('sku'),
                 'quantity' => request('quantity'),
                 'price' => request('price'),
-                'description' => request('description'),
-                'picture' => $file          
-            ]);        
+                'description' => request('description'),          
+            ]);
+            
+            $productRepo = new ProductRepository(new Product());
+            $findProduct = Product::orderBy('created_at', 'desc')->first();
+
+            $data = [
+                'picture' => "$name"
+            ];
+
+            if ($findProduct->update($data)){
+                return redirect('/products');
+            }
+            else {
+                return redirect('/products');
+            }
         } 
         else 
         {
@@ -105,6 +118,7 @@ class ProductsController extends Controller
 
     public function show(Product $product)
     {
+        dd($product);
         return view('products.show', compact('product'));
     }
 }
