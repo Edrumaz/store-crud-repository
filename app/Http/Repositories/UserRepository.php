@@ -26,8 +26,8 @@ class UserRepository implements IUserRepository
       try {
          return $this->model->create($data);
       }
-      catch (ModelNotFoundException $e) {
-         throw new NotFoundException($e);         
+      catch (Exception $e) {
+         throw new Exception($e);         
       }
    }
 
@@ -36,8 +36,8 @@ class UserRepository implements IUserRepository
       try {
          return $this->model->update($data);
       }
-      catch (QueryException $e) {
-         throw new UpdateException($e);
+      catch (Exception $e) {
+         throw new Exception($e);
       }
    }
 
@@ -46,8 +46,8 @@ class UserRepository implements IUserRepository
       try {
          return $this->model->findOrFail($id);
       }
-      catch (ModelNotFoundException $e){
-         throw new NotFoundException($e);
+      catch (Exception $e){
+         throw new Exception($e);
       }
    }
 
