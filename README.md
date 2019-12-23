@@ -12,6 +12,8 @@
 <code> php artisan generate:key </code><br>
 <br><p> Run the database migrations (Set the database connection in .env before migrating) </p>
 <code> php artisan migrate </code><br>
+<br><p> Populate the database with dummy data </p>
+<code> php artisan db:seed </code>
 <br><p> Start the local development server </p>
 <code> php artisan serve </code><br>
 <br><p> You can now access the server at http://127.0.0.1:8000/ </p>
